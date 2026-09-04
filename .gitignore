@@ -1,0 +1,14 @@
+# Temporary subtitle files
+*.en.srt
+*.en.vtt
+
+# Large JSON files that can be regenerated
+*/videos.json
+*/videos_info.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
