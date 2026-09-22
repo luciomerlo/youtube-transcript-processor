@@ -1,3 +1,25 @@
+# PROMPT DE CREACIÓN Y ACTUALIZACIÓN
+
+El prompt utilizado para crear este archivo, y el mismo prompt utilizado para actualizarlo, es:
+
+````text
+Analiza la totalidad de los archivos del proyecto cargado en el espacio de trabajo actual. Si ya existe un archivo 'contexto_proyecto.md' deberás actualizarlo con los mismos criterios de abajo. Si no existe, genera un único archivo consolidado llamado `contexto_proyecto.md` en la raíz con la siguiente estructura estricta, optimizada para que un motor de LLM posterior entienda la base de código completa:
+
+1. # RESUMEN Y ARQUITECTURA
+   - Propósito general del proyecto.
+   - Stack tecnológico, lenguajes, frameworks y dependencias principales.
+   - Diagrama o árbol de estructura de directorios/archivos relevantes (excluyendo carpetas de build, binarios y dependencias como node_modules, bin, obj, .git, venv).
+
+2. # ARCHIVOS DEL PROYECTO
+   Por cada archivo de código o configuración relevante, incluye su ruta relativa y su contenido completo sin omitir código:
+
+   ## Ruta: `camino/al/archivo.ext`
+   ```lenguaje
+   // Contenido completo
+````
+
+Última actualización: 2026-09-22. Se releyó el árbol completo (sin `.git`). Los cinco scripts, `README.md` y `.gitignore` coinciden con los bloques de la sección 2. `youtube_transcripts/all_transcripts.txt` sigue en 430809 bytes y 11274 líneas, UTF-8 sin BOM, y no se vuelve a copiar. Rama `master` igual a `origin/master`, árbol de trabajo limpio.
+
 # RESUMEN Y ARQUITECTURA
 
 ## Propósito general
@@ -14,7 +36,7 @@ El README designa `get_youtube_transcripts.ps1` como script principal y `get_you
 - Dependencia externa obligatoria: [yt-dlp](https://github.com/yt-dlp/yt-dlp). Si `Get-Command yt-dlp` no lo encuentra, cada script ejecuta `pip install yt-dlp`.
 - Runtime de JavaScript declarado en las cuatro versiones posteriores a la primera: Deno, mediante el flag `--js-runtimes deno` (lo usa el extractor de YouTube de yt-dlp). `get_transcriptions.ps1` no pasa ese flag.
 - Frameworks de aplicación: ninguno. No hay `package.json`, `requirements.txt`, `pyproject.toml`, Dockerfile ni configuración de CI.
-- Control de versiones: Git, rama `master`, remoto `origin`. La carpeta `.git` existe en disco y queda fuera de este documento.
+- Control de versiones: Git, rama `master`, remoto `origin` en `https://github.com/luciomerlo/youtube-transcript-processor`. La carpeta `.git` existe en disco y queda fuera de este documento.
 
 Canal fijo en los cinco scripts:
 
@@ -80,7 +102,7 @@ youtube-transcript-processor/
 
 ## Artefacto generado
 
-`youtube_transcripts/all_transcripts.txt` está versionado en el repositorio. Pesa 430809 bytes y tiene 11274 líneas, UTF-8 sin BOM. Es el producto de una ejecución, no código fuente, y su cuerpo no se copia en la sección 2.
+`youtube_transcripts/all_transcripts.txt` está versionado en el repositorio. Pesa 430809 bytes y tiene 22653 líneas (11274 no vacías), UTF-8 sin BOM, finales CRLF. Contiene 26 bloques de video. Las dos primeras líneas están vacías; el primer encabezado es el de `MaTkyO-8hZ0`. Es el producto de una ejecución, no código fuente, y su cuerpo no se copia en la sección 2. En la revisión del 2026-09-22 los siete archivos de código y configuración seguían idénticos al volcado anterior; solo se corrige este recuento.
 
 El primer bloque real del archivo empieza así (muestra de las primeras líneas; el resto del archivo sigue el mismo patrón de un cue por línea con la línea en blanco del SRT conservada):
 
@@ -179,7 +201,7 @@ Ese script escribe en `D:\projects\RadarTheNewThing\youtube_transcripts\all_tran
 
 Cada bloque es el contenido íntegro del archivo en disco, en este orden: documentación, configuración y scripts (primero el que el README marca como principal, después las variantes). Codificación de origen: UTF-8 sin BOM. Los finales de línea CRLF del archivo original se conservan dentro del bloque.
 
-`youtube_transcripts/all_transcripts.txt` es salida generada (430809 bytes, 11274 líneas) y no se incluye aquí. Su formato está descrito en la sección 1.
+`youtube_transcripts/all_transcripts.txt` es salida generada (430809 bytes, 22653 líneas, 11274 no vacías, 26 videos) y no se incluye aquí. Su formato está descrito en la sección 1.
 
 ## Ruta: `README.md`
 
